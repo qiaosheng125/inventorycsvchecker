@@ -51,3 +51,14 @@
 - 安装 GA4。
 - 安装 Clarity。
 - 建立 7 / 14 / 30 天复盘记录。
+
+## 2026-05-30 统计事件准备
+
+- GA4 / Clarity 注入代码已存在，当前 Vercel 尚未设置环境变量。
+- 已加入不含敏感内容的前端事件：
+  - `upload_original_csv`
+  - `upload_edited_csv`
+  - `download_issue_report`
+  - `download_change_report`
+  - `copy_ai_fix_prompt`
+- 配置步骤见：`docs/search-analytics-setup.md`

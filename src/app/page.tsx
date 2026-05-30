@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useMemo, useState } from "react";
 import Papa from "papaparse";
+import { trackEvent } from "./analytics";
 
 type Severity = "critical" | "warning" | "info";
 
@@ -360,7 +361,7 @@ ${issues.slice(0, 80).map((issue) => `- ${issue.severity.toUpperCase()} row ${is
 Return a concise repair plan and warn me about any stock overwrite risk.`;
 }
 
-function downloadText(filename: string, content: string) {
+function downloadText(filename: string, content: string, eventName: string) {
   const blob = new Blob([content], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -368,6 +369,7 @@ function downloadText(filename: string, content: string) {
   link.download = filename;
   link.click();
   URL.revokeObjectURL(url);
+  trackEvent(eventName);
 }
 
 function Brand() {
@@ -395,17 +397,27 @@ export default function Home() {
   function copy(value: string, label: string) {
     navigator.clipboard.writeText(value).then(() => {
       setCopied(`${label} copied.`);
+      trackEvent("copy_ai_fix_prompt");
       window.setTimeout(() => setCopied(""), 1800);
     });
   }
 
-  function onFile(event: ChangeEvent<HTMLInputElement>, setter: (value: string) => void) {
+  function onFile(
+    event: ChangeEvent<HTMLInputElement>,
+    setter: (value: string) => void,
+    eventName: string
+  ) {
     const file = event.target.files?.[0];
     if (!file) {
       return;
     }
     const reader = new FileReader();
-    reader.onload = () => setter(String(reader.result ?? ""));
+    reader.onload = () => {
+      setter(String(reader.result ?? ""));
+      trackEvent(eventName, {
+        file_size_bucket: file.size < 1024 * 100 ? "under_100kb" : "over_100kb"
+      });
+    };
     reader.readAsText(file);
   }
 
@@ -442,7 +454,7 @@ export default function Home() {
               </div>
               <label className="fileButton">
                 Upload old CSV
-                <input type="file" accept=".csv,text/csv,text/plain" onChange={(event) => onFile(event, setOldText)} />
+                <input type="file" accept=".csv,text/csv,text/plain" onChange={(event) => onFile(event, setOldText, "upload_original_csv")} />
               </label>
             </div>
             <textarea value={oldText} onChange={(event) => setOldText(event.target.value)} spellCheck={false} aria-label="Original Shopify inventory CSV" />
@@ -456,7 +468,7 @@ export default function Home() {
               </div>
               <label className="fileButton">
                 Upload new CSV
-                <input type="file" accept=".csv,text/csv,text/plain" onChange={(event) => onFile(event, setNewText)} />
+                <input type="file" accept=".csv,text/csv,text/plain" onChange={(event) => onFile(event, setNewText, "upload_edited_csv")} />
               </label>
             </div>
             <textarea value={newText} onChange={(event) => setNewText(event.target.value)} spellCheck={false} aria-label="Edited Shopify inventory CSV" />
@@ -496,10 +508,10 @@ export default function Home() {
             <h2>Import issues and overwrite risks</h2>
           </div>
           <div className="reportActions">
-            <button type="button" onClick={() => downloadText("shopify-inventory-csv-report.csv", reportCsv)}>
+            <button type="button" onClick={() => downloadText("shopify-inventory-csv-report.csv", reportCsv, "download_issue_report")}>
               Download CSV report
             </button>
-            <button type="button" onClick={() => downloadText("shopify-inventory-change-report.csv", changeCsv)}>
+            <button type="button" onClick={() => downloadText("shopify-inventory-change-report.csv", changeCsv, "download_change_report")}>
               Download change report
             </button>
             <button type="button" onClick={() => copy(aiPrompt, "AI prompt")}>

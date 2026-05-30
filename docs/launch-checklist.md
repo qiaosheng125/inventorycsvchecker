@@ -26,6 +26,8 @@
 - [ ] Bing Webmaster 已提交。
 - [ ] GA4 已安装。
 - [ ] Clarity 已安装。
+- [x] GA4 / Clarity 注入代码已预留。
+- [x] 核心前端事件已埋点，等待 GA4 / Clarity ID 生效。
 
 ## Cloudflare DNS 记录
 
