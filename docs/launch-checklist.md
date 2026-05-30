@@ -1,55 +1,50 @@
-# Shopify Inventory CSV Checker Launch Checklist
+# Shopify Inventory CSV Checker 上线清单
 
-## Before Domain
+## 域名前
 
-- [x] SERP competitor table complete.
-- [x] Domain candidates listed.
-- [x] Trademark-safe name chosen.
-- [x] Local build passes.
-- [x] Smoke check passes.
-- [x] Domain purchased: `inventorycsvchecker.com`.
+- [x] SERP 竞品表已完成。
+- [x] 域名候选已列出。
+- [x] 商标安全命名已确认。
+- [x] 本地构建通过。
+- [x] 本地 smoke 检查通过。
+- [x] 域名已购买：`inventorycsvchecker.com`。
 
-## Before Indexing
+## 收录前
 
-- [x] Final domain configured: `https://www.inventorycsvchecker.com`.
-- [x] `NEXT_PUBLIC_SITE_URL` fallback set to the final canonical domain.
-- [x] Canonical URL uses `siteUrl`.
-- [x] Sitemap URL uses `siteUrl`.
-- [x] robots sitemap uses `siteUrl`.
-- [x] About, Contact, Privacy pages present.
-- [x] Not affiliated with Shopify statement visible.
-- [x] Local processing statement visible.
-- [x] Production deployment created.
-- [x] Domain bound to production deployment in Vercel.
-- [x] HTTPS verified.
-- [ ] GSC submitted.
-- [ ] Bing submitted.
-- [ ] GA4 installed.
-- [ ] Clarity installed.
+- [x] 最终域名已确定：`https://www.inventorycsvchecker.com`。
+- [x] `NEXT_PUBLIC_SITE_URL` 默认值已设为最终 canonical 域名。
+- [x] canonical URL 使用 `siteUrl`。
+- [x] sitemap URL 使用 `siteUrl`。
+- [x] robots sitemap 使用 `siteUrl`。
+- [x] About、Contact、Privacy 页面已存在。
+- [x] 首页有 `Not affiliated with Shopify` 声明。
+- [x] 首页有本地处理声明。
+- [x] Vercel 生产部署已创建。
+- [x] 域名已绑定到 Vercel 项目。
+- [x] HTTPS 已验证。
+- [ ] GSC 已提交。
+- [ ] Bing Webmaster 已提交。
+- [ ] GA4 已安装。
+- [ ] Clarity 已安装。
 
-## DNS Records Needed In Cloudflare
+## Cloudflare DNS 记录
 
-Vercel reported the domain is using Cloudflare nameservers:
+Vercel 检测到当前使用 Cloudflare nameserver：
 
 - `everton.ns.cloudflare.com`
 - `mona.ns.cloudflare.com`
 
-Add these records in Cloudflare DNS:
+已完成的 DNS 指向目标：
 
-| Type | Name | Value | Proxy |
+| 类型 | 名称 | 值 | 代理状态 |
 |---|---|---|---|
 | A | `@` | `76.76.21.21` | DNS only |
 | A | `www` | `76.76.21.21` | DNS only |
 
-After propagation, verify:
+## 生产验证
 
-- [x] `https://www.inventorycsvchecker.com`
-- [x] `https://inventorycsvchecker.com` redirects to `https://www.inventorycsvchecker.com`
-- [x] `https://www.inventorycsvchecker.com/robots.txt`
-- [x] `https://www.inventorycsvchecker.com/sitemap.xml`
-
-## Production Verification
-
-- `curl -I https://www.inventorycsvchecker.com`: 200 OK.
-- `curl -I https://inventorycsvchecker.com`: 308 redirect to `https://www.inventorycsvchecker.com/`.
-- `BASE_URL=https://www.inventorycsvchecker.com npm run smoke`: passed.
+- [x] `https://www.inventorycsvchecker.com` 返回 200。
+- [x] `https://inventorycsvchecker.com` 308 跳转到 `https://www.inventorycsvchecker.com/`。
+- [x] `https://www.inventorycsvchecker.com/robots.txt` 可访问。
+- [x] `https://www.inventorycsvchecker.com/sitemap.xml` 可访问。
+- [x] `BASE_URL=https://www.inventorycsvchecker.com npm run smoke` 通过。

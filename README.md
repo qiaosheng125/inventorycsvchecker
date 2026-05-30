@@ -1,26 +1,28 @@
 # Shopify Inventory CSV Checker
 
-Browser-based Shopify inventory CSV pre-import checker.
+面向海外用户的 Shopify 库存 CSV 导入前检查工具。
 
-Status: local MVP verified. Domain purchased: `inventorycsvchecker.com`. Production deployment is not live yet.
+当前状态：本地 MVP 已验证，域名 `inventorycsvchecker.com` 已购买，生产站已上线：
 
-## Local Development
+`https://www.inventorycsvchecker.com`
+
+## 本地开发
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Boundaries
+## 边界
 
-- Not affiliated with Shopify.
-- Files stay in the browser.
-- No Shopify OAuth.
-- No real inventory sync.
-- No server-side file upload.
+- 非 Shopify 官方工具。
+- 文件留在浏览器本地处理。
+- 不做 Shopify OAuth。
+- 不做真实库存同步。
+- 不做服务端 CSV 上传。
 
-## Environment Variables
+## 环境变量
 
-- `NEXT_PUBLIC_SITE_URL`: final canonical domain, for example `https://www.inventorycsvchecker.com`.
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID`: optional GA4 ID.
-- `NEXT_PUBLIC_CLARITY_ID`: optional Microsoft Clarity ID.
+- `NEXT_PUBLIC_SITE_URL`：最终 canonical 域名，例如 `https://www.inventorycsvchecker.com`。
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID`：可选 GA4 ID。
+- `NEXT_PUBLIC_CLARITY_ID`：可选 Microsoft Clarity ID。
