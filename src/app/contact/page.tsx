@@ -13,7 +13,12 @@ export default function ContactPage() {
           names in your CSV, and what result you expected. Do not send real store
           inventory unless you intentionally remove sensitive data first.
         </p>
-        <p>Email: hello@example.com</p>
+        <p>
+          Email:{" "}
+          <a href="mailto:support@inventorycsvchecker.com">
+            support@inventorycsvchecker.com
+          </a>
+        </p>
       </section>
     </main>
   );

@@ -18,6 +18,14 @@ export default function PrivacyPage() {
           data such as page views and interaction events. CSV file contents are
           not intentionally sent to analytics.
         </p>
+        <p>
+          For privacy questions or bug reports, email{" "}
+          <a href="mailto:support@inventorycsvchecker.com">
+            support@inventorycsvchecker.com
+          </a>
+          . Your email address and message are used only to respond to your
+          request and improve the checker.
+        </p>
       </section>
     </main>
   );
