@@ -19,10 +19,31 @@
 - [x] About, Contact, Privacy pages present.
 - [x] Not affiliated with Shopify statement visible.
 - [x] Local processing statement visible.
-- [ ] Production deployment created.
-- [ ] Domain bound to production deployment.
+- [x] Production deployment created.
+- [x] Domain bound to production deployment in Vercel.
 - [ ] HTTPS verified.
 - [ ] GSC submitted.
 - [ ] Bing submitted.
 - [ ] GA4 installed.
 - [ ] Clarity installed.
+
+## DNS Records Needed In Cloudflare
+
+Vercel reported the domain is using Cloudflare nameservers:
+
+- `everton.ns.cloudflare.com`
+- `mona.ns.cloudflare.com`
+
+Add these records in Cloudflare DNS:
+
+| Type | Name | Value | Proxy |
+|---|---|---|---|
+| A | `@` | `76.76.21.21` | DNS only |
+| A | `www` | `76.76.21.21` | DNS only |
+
+After propagation, verify:
+
+- `https://www.inventorycsvchecker.com`
+- `https://inventorycsvchecker.com` redirects to `https://www.inventorycsvchecker.com`
+- `https://www.inventorycsvchecker.com/robots.txt`
+- `https://www.inventorycsvchecker.com/sitemap.xml`
