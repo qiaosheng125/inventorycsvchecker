@@ -21,7 +21,7 @@
 - [x] Local processing statement visible.
 - [x] Production deployment created.
 - [x] Domain bound to production deployment in Vercel.
-- [ ] HTTPS verified.
+- [x] HTTPS verified.
 - [ ] GSC submitted.
 - [ ] Bing submitted.
 - [ ] GA4 installed.
@@ -43,7 +43,13 @@ Add these records in Cloudflare DNS:
 
 After propagation, verify:
 
-- `https://www.inventorycsvchecker.com`
-- `https://inventorycsvchecker.com` redirects to `https://www.inventorycsvchecker.com`
-- `https://www.inventorycsvchecker.com/robots.txt`
-- `https://www.inventorycsvchecker.com/sitemap.xml`
+- [x] `https://www.inventorycsvchecker.com`
+- [x] `https://inventorycsvchecker.com` redirects to `https://www.inventorycsvchecker.com`
+- [x] `https://www.inventorycsvchecker.com/robots.txt`
+- [x] `https://www.inventorycsvchecker.com/sitemap.xml`
+
+## Production Verification
+
+- `curl -I https://www.inventorycsvchecker.com`: 200 OK.
+- `curl -I https://inventorycsvchecker.com`: 308 redirect to `https://www.inventorycsvchecker.com/`.
+- `BASE_URL=https://www.inventorycsvchecker.com npm run smoke`: passed.

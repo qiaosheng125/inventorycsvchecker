@@ -5,7 +5,7 @@
 - Date: 2026-05-30
 - Stage: domain purchased; pre-deploy
 - Domain: `inventorycsvchecker.com` purchased
-- Production URL: deployed on Vercel; DNS not verified yet
+- Production URL: `https://www.inventorycsvchecker.com`
 - GSC/Bing/GA4/Clarity: not configured
 
 ## Launch Gate
@@ -39,7 +39,7 @@ This project should not be considered L0 until:
   - `https://www.inventorycsvchecker.com`
   - `https://004shopify-inventory-csv-checker.vercel.app`
 - Vercel deployment inspected as ready.
-- DNS still needs Cloudflare records:
-  - `A @ 76.76.21.21`
-  - `A www 76.76.21.21`
-- Next external steps: Cloudflare DNS, HTTPS verification, GSC/Bing, GA4, and Clarity.
+- DNS and HTTPS verified.
+- `https://inventorycsvchecker.com` redirects to `https://www.inventorycsvchecker.com/`.
+- `BASE_URL=https://www.inventorycsvchecker.com npm run smoke`: passed.
+- Next external steps: GSC/Bing, GA4, and Clarity.
