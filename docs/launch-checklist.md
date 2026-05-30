@@ -24,10 +24,11 @@
 - [x] HTTPS 已验证。
 - [ ] GSC 已提交。
 - [ ] Bing Webmaster 已提交。
-- [ ] GA4 已安装。
-- [ ] Clarity 已安装。
+- [x] GA4 已安装：`G-5BQL6W3F74`。
+- [x] Clarity 已安装：`wz70095ban`。
 - [x] GA4 / Clarity 注入代码已预留。
 - [x] 核心前端事件已埋点，等待 GA4 / Clarity ID 生效。
+- [x] 线上 HTML 已验证包含 GA4 和 Clarity 脚本。
 
 ## Cloudflare DNS 记录
 

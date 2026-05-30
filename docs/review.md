@@ -6,7 +6,9 @@
 - 阶段：已上线，待接入站长工具和统计。
 - 域名：`inventorycsvchecker.com`
 - 生产地址：`https://www.inventorycsvchecker.com`
-- GSC / Bing / GA4 / Clarity：未配置。
+- GSC / Bing：未配置。
+- GA4：已安装，`G-5BQL6W3F74`。
+- Clarity：已安装，`wz70095ban`。
 
 ## 上线门槛
 
@@ -15,7 +17,7 @@
 - [x] 域名方向确认：`inventorycsvchecker.com`。
 - [x] HTTPS 生产地址可访问。
 - [ ] GSC 和 Bing 提交。
-- [ ] GA4 和 Clarity 安装。
+- [x] GA4 和 Clarity 安装。
 - [x] sitemap 和 robots 使用最终域名。
 - [x] 检查器通过本地 build 和 smoke。
 
@@ -43,18 +45,18 @@
 - HTTPS 已验证。
 - `https://inventorycsvchecker.com` 已跳转到 `https://www.inventorycsvchecker.com/`。
 - `BASE_URL=https://www.inventorycsvchecker.com npm run smoke`：通过。
+- GA4：已安装并在线上 HTML 中验证。
+- Clarity：已安装并在线上 HTML 中验证。
 
 ## 下一步
 
 - 提交 GSC。
 - 提交 Bing Webmaster。
-- 安装 GA4。
-- 安装 Clarity。
 - 建立 7 / 14 / 30 天复盘记录。
 
 ## 2026-05-30 统计事件准备
 
-- GA4 / Clarity 注入代码已存在，当前 Vercel 尚未设置环境变量。
+- GA4 / Clarity 注入代码已存在，Vercel production 环境变量已配置。
 - 已加入不含敏感内容的前端事件：
   - `upload_original_csv`
   - `upload_edited_csv`
@@ -62,3 +64,15 @@
   - `download_change_report`
   - `copy_ai_fix_prompt`
 - 配置步骤见：`docs/search-analytics-setup.md`
+
+## 2026-05-30 GA4 / Clarity 安装验证
+
+- Vercel 环境变量：
+  - `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+  - `NEXT_PUBLIC_CLARITY_ID`
+- 正式域名 smoke：通过。
+- 线上 HTML 检测到：
+  - `https://www.googletagmanager.com/gtag/js?id=G-5BQL6W3F74`
+  - `gtag('config', 'G-5BQL6W3F74')`
+  - `https://www.clarity.ms/tag/`
+  - `wz70095ban`
