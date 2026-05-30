@@ -76,3 +76,42 @@
   - `gtag('config', 'G-5BQL6W3F74')`
   - `https://www.clarity.ms/tag/`
   - `wz70095ban`
+
+## 2026-05-30 用第 2 站检测第 4 站
+
+使用 `https://www.nextseochecker.com/api/check` 检测：
+
+```txt
+https://www.inventorycsvchecker.com
+```
+
+结果：
+
+```txt
+critical: 0
+warning: 0
+passed: 13
+```
+
+通过项：
+
+- 首页返回 200。
+- 重定向链短。
+- 未发现 `noindex`。
+- canonical 指向本站。
+- title 存在。
+- meta description 存在。
+- H1 存在。
+- `robots.txt` 不阻止首页。
+- `robots.txt` 包含 sitemap。
+- `sitemap.xml` 可读取。
+- sitemap URL 使用同一主域。
+- Open Graph 基础信息存在。
+- 未配置 JSON-LD，但简单工具页可接受。
+
+抽样 sitemap URL 均返回 200：
+
+- `https://www.inventorycsvchecker.com/`
+- `https://www.inventorycsvchecker.com/about`
+- `https://www.inventorycsvchecker.com/contact`
+- `https://www.inventorycsvchecker.com/privacy`
