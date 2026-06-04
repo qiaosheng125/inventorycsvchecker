@@ -1,5 +1,8 @@
 export const metadata = {
-  title: "Privacy"
+  title: "Privacy",
+  alternates: {
+    canonical: "/privacy"
+  }
 };
 
 export default function PrivacyPage() {

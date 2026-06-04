@@ -233,6 +233,13 @@ textarea {
   line-height: 1.65;
 }
 
+.inputNotice {
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 800;
+  margin: 12px 0 0;
+}
+
 .trustLine {
   display: flex;
   flex-wrap: wrap;

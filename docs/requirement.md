@@ -2,7 +2,7 @@
 
 Source candidate file:
 
-`02_候选关键词/第四站需求文档_Shopify_Inventory_CSV_Checker.md`
+历史来源文档已删除；当前需求判断以后续 `docs/01_research.md` 或当前 SOP 为准。
 
 ## MVP
 

@@ -11,9 +11,6 @@ export const metadata: Metadata = {
   },
   description:
     "Check Shopify inventory CSV files before import. Find SKU, Location, On hand current/new, duplicate rows, and overwrite risks locally in your browser.",
-  alternates: {
-    canonical: "/"
-  },
   openGraph: {
     title: "Shopify Inventory CSV Checker",
     description:
